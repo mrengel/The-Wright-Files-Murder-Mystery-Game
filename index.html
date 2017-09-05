@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+   <meta charset="UTF-8">
+   <title>Murder Mystery</title>
+   <!-- jQuery -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <!-- Google Fonts-->
+   <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+   <!-- Bootstrap CDN-->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <!-- Mobile Responsive Viewport info-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Native CSS-->
+   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+   <!-- Firebase link-->
+   <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+   <!-- jQuery UI links -->
+   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ </head>
+
+ <body>
+
+ <div class="container">
+     <div class="jumbotron">
+      <h1 class="text-center gameTitle"><img class="brand" src="assets/css/images/sherlock.png" style="width:50px">Murder Mystery Title</h1>
+      <form>
+       <div class="form-group">
+        <label for="guess">Guess who did it</label>
+        <input class="form-control" id="userGuess" type="text"> 
+        </div>
+        <button class="btn btn-primary" id="submit" type="submit">Submit</button>
+      </form>
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-6 ">
+        <div class="col-md-12 textHolder"></div>
+        <div class="clues"></div>
+      </div>
+
+      <div class="col-md-6 ">
+        <div class="col-md-12 imageHolder">
+          <div id="rules">
+          </div>
+          <div id="scenario">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Popup box -->
+    <div id="mpopupBox" class="mpopup" align="center">
+        <div class="mpopup-content">
+          <div class="row">
+            <div class="col-sm-12 center-block"">
+              <button id=button1 class="btn btn-primary center-block">Game Rules</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 center-block">
+              <button id=button2 class="btn btn-primary center-block">Start Game</button>
+           </div>
+          </div>
+        </div>
+    </div>
+
+    <script src="assets/javascript/app.js"></script>
+
+    <!-- Show modal popup box -->
+    <script>
+      mpopup.style.display = "block";
+    </script>
+    
+   </body>
+
+<footer>
+
+</footer>
+</html>

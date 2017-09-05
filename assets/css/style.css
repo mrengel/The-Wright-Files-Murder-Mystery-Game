@@ -1,0 +1,144 @@
+
+body {
+	background-image: url("images/brickResize.jpg");
+	background-repeat: repeat;
+}
+
+br {
+	background-color: black;
+}
+
+.gameTitle {
+  font-family: 'Special Elite', 'Georgia', Times, Times New Roman, serif;
+  font-size: 1.5em;
+  color:white;
+  height:75px;
+  width:100%;
+  margin-bottom: 2%;
+}
+
+.mGlass {
+  transform: scaleX(-1);
+  position:absolute;
+  right:0;
+  top:0;
+}
+
+.textHolder{
+	background-color: #ffcccc;
+	background-image: url("images/bulletinResize.jpg");
+	background-repeat: repeat;
+  border: #2e1a12 solid 8px;
+ 	-webkit-box-shadow: inset 0px 0px 10px rgba(0,0,0,1);
+	height:600px;
+	padding:5%;
+	color:black;
+	font-size: 1.5em;
+	margin-bottom:5%;
+}
+
+.imageHolder{
+	background-color: #ffcccc;
+	background-image: url("images/ricePaper.png");
+	background-repeat: repeat;
+	height:600px;
+	padding:5%;
+	color:black;
+	font-size: 1.5em;
+  margin-bottom:5%;
+  box-shadow: 5px 5px 5px black;
+}
+
+.jumbotron {
+  background-color: black;
+  color: white;
+}
+
+#rules {
+  font-size: 12px;
+  line-height: 1.5;
+  font-family: 'Special Elite', 'Georgia', Times, Times New Roman, serif;
+}
+
+#scenario {
+  font-size: 12px;
+  line-height: 1.5;
+  font-family:  'Special Elite','Georgia', Times, Times New Roman, serif;
+}
+
+#line {
+  color:black;
+}
+
+.form-group {
+   font-family: 'Special Elite', 'Georgia', Times, Times New Roman, serif; 
+}
+
+.brand {
+  margin-bottom: 2%;
+  margin-right: 2%;
+}
+
+
+/************************/
+/* Popup box modal form */
+/************************/
+.mpopup-content {
+ position: absolute;
+ background-color: grey;
+ z-index:1000px;
+     top: 50%;
+     height: 115px;
+     margin-top: -57px; /* Half of the height */
+     left: 50%;
+     width:400px;
+     margin-left: -200px; /* Half of the width */
+     border-radius: 5px;
+    box-shadow: 0 10px 24px 0 rgba(0,0,0,0.2),0 10px 24px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+#button1,#button2 {
+  width:200px;
+  margin-top:15px;
+}
+#button2 {
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width: 720px) and (min-width: 641px) {
+	.imageHolder {
+		margin-top: 5%;
+	}
+
+	.textHolder {
+		margin-bottom: 5%;
+	}
+
+}
+
+/*********************************************************/
+/* Add animation effects to modal form and button clicks */
+/*********************************************************/
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+.mpopup-content {
+  animation: pulse 5s infinite;
+}
+@keyframes pulse {
+  0% {
+    background-color: #000000;
+  }
+  100% {
+    background-color: #8000ff;
+  }
+}
