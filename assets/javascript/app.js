@@ -1,4 +1,4 @@
- var config = {
+var config = {
     apiKey: "AIzaSyCrEZMsZawnMNSTCe_mteQBAaGpmuMQH6Y",
     authDomain: "groupproject-14138.firebaseapp.com",
     databaseURL: "https://groupproject-14138.firebaseio.com",
@@ -75,14 +75,13 @@
   var suspect3bio = "";
   var suspect3image = "";
   
-  //******************************************************
-  // Get mystery data from firebase and hold in variables*
-  //******************************************************
   var refData = database.ref().child("Mysteries/" + mysteryNum + "/");
   refData.on('value', getData, errData)
 
+  /*******************************************************/
+  // Get mystery data from firebase and hold in variables /
+  //******************************************************/
   function getData(data) {
-    
     clue = data.val().clue;
     murderer = data.val().murderer;
     rules = data.val().rules;
@@ -117,8 +116,6 @@
     suspect3bio = data.val().suspect3.bio;
     suspect3image = data.val().suspect3.image;
 
-
-   
     console.log("clue: " + clue);
     console.log("murderer: " + murderer);
     console.log("rules: " + rules);
@@ -158,71 +155,167 @@
   /*******************************************/
   var mpopup = document.getElementById('mpopupBox');
 
-  //****************************/
-  // Function for button1 click /
-  //****************************/
+  //****************************************************/
+  // Function for GameRules button click on Modal popup /
+  //****************************************************/
   var effect = "";
-  $("#button1").on("click", function(event) {
+  var br = $("<br>").text();
+
+  //*****************************/
+  // Runs behind GameRules button/
+  //*****************************/
+  function rulesScenario() {
+    $( "#rules" ).empty();
+    $( "#scenario" ).empty(); 
     var h3 = $("<h3>").text("Game Rules");
     $("#rules").append(h3);
-    var br = $("<br>").text();
     $("#rules").append(br);
     $("#rules").append(rules);
-    var br = $("<br>").text();
     $("#rules").append(br);
     var hr = $("<hr width='100%' id='line'>");
     $("#rules").append(hr);
     var h3 = $("<h3>").text("Scenario");
     $("#scenario").append(h3);
-    var br = $("<br>").text();
     $("#scenario").append(br);
     $("#scenario").append(scenario); 
-    var br = $("<br>").text();
     $("#scenario").append(br);
+    //**************************************************/
+    // Add Next button to get to game from first "view" /
+    //**************************************************/
+    var nextBtn = $("<button id='next' style='float:right'>").text("Next");
+    $("#scenario").append(nextBtn);
+  }
 
-    //Added a return button in case users wanted to return to the modal page//
-    //No functionality yet//
-    var back = $("<button id='Go Back'>").text("Go Back");
-    $("#scenario").append(back);
-
-    runEffect();
-
-  });
-
-
-  //****************************/
-  // Function for button2 click /
-  //****************************/
-  $("#button2").on("click", function(event) {
-    var h3 = $("<h3>").text("Biography");
+  //*****************************/
+  // Runs behind Previous button /
+  //*****************************/
+  function rulesScenarioPrevious() {
+    $("#rules").empty();
+    $("#scenario").empty(); 
+    $( "#buttons").empty();
+    var h3 = $("<h3>").text("Game Rules");
     $("#rules").append(h3);
-    var br = $("<br>").text();
     $("#rules").append(br);
-
-    var h3 = $("<h3>").text("Interview Questions");
+    $("#rules").append(rules);
+    $("#rules").append(br);
+    var hr = $("<hr width='100%' id='line'>");
+    $("#rules").append(hr);
+    var h3 = $("<h3>").text("Scenario");
     $("#scenario").append(h3);
-    var br = $("<br>").text();
     $("#scenario").append(br);
+    $("#scenario").append(scenario); 
+    $("#scenario").append(br);
+    //**************************************************/
+    // Add Next button to get to game from first "view" /
+    //**************************************************/
+    var nextBtn = $("<button id='next' style='float:right'>").text("Next");
+    $("#scenario").append(nextBtn);
+  }
 
-    $()
-
-
-
-    runEffect();
-  });
-
+  //***********************************************************************/
+  // Get randomly selected effect and apply to both buttons on Modal popup /
+  //***********************************************************************/
   function runEffect() {
-    //******************************/
-    // Get randomly selected effect /
-    //******************************/
     var effectArray = ["blind","clip","drop","explode","fold","puff"];
     var effectNumber = Math.floor(Math.random() * 6) + 1;
     effectNumber--;
     effect = effectArray[effectNumber];
-    console.log("Effect: " + effect);
-    $("#button1").effect(effect,750);
-    $("#button2").effect(effect,750);
+    $("#gamerules").effect(effect,750);
+    $("#start").effect(effect,750);
     setTimeout(function(){
       mpopup.style.display = "none";
     },749);
   }
+
+  //************************/
+  // Create suspect buttons /
+  //************************/
+  function startGame() {
+    var suspect1Btn = $("<button id='suspect1' class='suspect'>").text("Suspect1");
+    var suspect2Btn = $("<button id='suspect2' class='suspect'>").text("Suspect2");
+    var suspect3Btn = $("<button id='suspect3' class='suspect'>").text("Suspect3");
+    $("#buttons").append(suspect1Btn);
+    $("#buttons").append(suspect2Btn);
+    $("#buttons").append(suspect3Btn);
+  }
+
+ //***************************/
+ //Function for suspect click /
+ //***************************/
+  $(document).on("click", ".suspect", function() {
+    $( "#rules" ).empty();
+    $( "#scenario" ).empty();
+    var suspect = $(this).attr('id');
+    var h3 = $("<h3>").text("Bio");
+    $("#rules").append(h3);
+    var hr = $("<hr width='100%' id='line'>");
+    $("#rules").append(hr);
+    $("#rules").append("<h5><span id='bio'></span></h5>");
+    $("#rules").append("<br>");
+    $("#rules").append("<br>");
+    var h3 = $("<h3>").text("Interview Questions");
+    $("#scenario").append(h3);
+    var hr = $("<hr width='100%' id='line'>");
+    $("#scenario").append(hr);
+    $("#scenario").append("<h5>Question1: <span id='question1'></span></h5>");
+    $("#scenario").append("<h5>Answer1: <span id='answer1'></span></h5>");
+    $("#scenario").append("<br>");  
+    $("#scenario").append("<h5>Question2: <span id='question2'></span></h5>");
+    $("#scenario").append("<h5>Answer2: <span id='answer2'></span></h5>");
+    $("#scenario").append("<br>"); 
+    $("#scenario").append("<h5>Question3: <span id='question3'></span></h5>");
+    $("#scenario").append("<h5>Answer3: <span id='answer3'></span></h5>");
+    $("#scenario").append("<br>"); 
+    var prevBtn = $("<button id='previous' style='float:right'>").text("Previous");
+    $("#scenario").append(prevBtn);
+    
+    //************************************************/
+    // Determine suspect and use applicable variables /
+    //************************************************/
+    if (suspect == "suspect1") {
+      $("#question1").html(suspect1question1);
+      $("#answer1").html(suspect1answer1);
+      $("#question2").html(suspect1question2);
+      $("#answer2").html(suspect1answer2);
+      $("#question3").html(suspect1question3);
+      $("#answer3").html(suspect1answer3);
+      $("#bio").html(suspect1bio);
+    } else if (suspect == "suspect2") {
+      $("#question1").html(suspect2question1);
+      $("#answer1").html(suspect2answer1);
+      $("#question2").html(suspect2question2);
+      $("#answer2").html(suspect2answer2);
+      $("#question3").html(suspect2question3);
+      $("#answer3").html(suspect2answer3);
+      $("#bio").html(suspect2bio);
+    } else if (suspect == "suspect3") {
+      $("#question1").html(suspect3question1);
+      $("#answer1").html(suspect3answer1);
+      $("#question2").html(suspect3question2);
+      $("#answer2").html(suspect3answer2);
+      $("#question3").html(suspect3question3);
+      $("#answer3").html(suspect3answer3);
+      $("#bio").html(suspect3bio);
+    }
+  });
+
+  //************************************************************************/
+  // Click functions for StartGame, GameRules, Next, Previous button clicks /
+  //************************************************************************/
+  $("#start").on("click", function(event) {
+    startGame();
+    runEffect();
+  });
+
+  $("#gamerules").on("click", function(event) {
+    rulesScenario();
+    runEffect();
+  });
+
+  $(document).on("click", "#previous", rulesScenarioPrevious);
+
+  $(document).on("click", "#next", function() {
+    $( "#rules" ).empty();
+    $( "#scenario" ).empty();
+    startGame();
+  });

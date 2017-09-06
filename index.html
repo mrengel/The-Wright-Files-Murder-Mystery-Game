@@ -24,25 +24,42 @@
 
  <body>
 
+         <!-- Popup box -->
+
+
  <div class="container">
+       
+<div id="mpopupBox" class="mpopup" align="center">
+    <div class="mpopup-content">
+        <div class="row">
+            <div class="col-sm-12 center-block" ">
+              <button id=gamerules class="btn btn-primary center-block ">Game Rules</button>
+            </div>
+          </div>
+          <div class="row ">
+            <div class="col-sm-12 center-block ">
+              <button id=start class="btn btn-primary center-block ">Start Game</button>
+           </div>
+          </div>
+        </div>
+       </div> 
+      <div class="container">   
      <div class="jumbotron">
       <h1 class="text-center gameTitle"><img class="brand" src="assets/css/images/sherlock.png" style="width:50px">Murder Mystery Title</h1>
       <form>
        <div class="form-group">
-        <label for="guess">Guess who did it</label>
+        <label for="guess">Have a guess? Declare your suspect:</label>
         <input class="form-control" id="userGuess" type="text"> 
         </div>
         <button class="btn btn-primary" id="submit" type="submit">Submit</button>
       </form>
+      <img class="volume" src="assets/css/images/volume.png" style="width:25px">
     </div>
-
     <div class="row">
-
       <div class="col-md-6 ">
         <div class="col-md-12 textHolder"></div>
         <div class="clues"></div>
       </div>
-
       <div class="col-md-6 ">
         <div class="col-md-12 imageHolder">
           <div id="rules">
@@ -51,35 +68,15 @@
           </div>
         </div>
       </div>
-
     </div>
-
-    <!-- Popup box -->
-    <div id="mpopupBox" class="mpopup" align="center">
-        <div class="mpopup-content">
-          <div class="row">
-            <div class="col-sm-12 center-block"">
-              <button id=button1 class="btn btn-primary center-block">Game Rules</button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12 center-block">
-              <button id=button2 class="btn btn-primary center-block">Start Game</button>
-           </div>
-          </div>
-        </div>
-    </div>
-
+  
     <script src="assets/javascript/app.js"></script>
-
     <!-- Show modal popup box -->
     <script>
       mpopup.style.display = "block";
     </script>
     
    </body>
-
 <footer>
-
 </footer>
 </html>

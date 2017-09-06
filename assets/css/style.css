@@ -1,50 +1,50 @@
 
 body {
-	background-image: url("images/brickResize.jpg");
-	background-repeat: repeat;
+  background-image: url("images/brickResize.jpg");
+  background-repeat: repeat;
 }
 
 br {
-	background-color: black;
+  background-color: black;
+}
+
+.row {
+  margin: 0;
 }
 
 .gameTitle {
   font-family: 'Special Elite', 'Georgia', Times, Times New Roman, serif;
-  font-size: 1.5em;
   color:white;
   height:75px;
   width:100%;
   margin-bottom: 2%;
 }
 
-.mGlass {
-  transform: scaleX(-1);
-  position:absolute;
-  right:0;
-  top:0;
+.form-group {
+   font-family: 'Special Elite', 'Georgia', Times, Times New Roman, serif; 
 }
 
 .textHolder{
-	background-color: #ffcccc;
-	background-image: url("images/bulletinResize.jpg");
-	background-repeat: repeat;
+  background-color: #ffcccc;
+  background-image: url("images/bulletinResize.jpg");
+  background-repeat: repeat;
   border: #2e1a12 solid 8px;
- 	-webkit-box-shadow: inset 0px 0px 10px rgba(0,0,0,1);
-	height:600px;
-	padding:5%;
-	color:black;
-	font-size: 1.5em;
-	margin-bottom:5%;
+  -webkit-box-shadow: inset 0px 0px 10px rgba(0,0,0,1);
+  height:600px;
+  padding:5%;
+  color:black;
+  font-size: 1.5em;
+  margin-bottom:5%;
 }
 
 .imageHolder{
-	background-color: #ffcccc;
-	background-image: url("images/ricePaper.png");
-	background-repeat: repeat;
-	height:600px;
-	padding:5%;
-	color:black;
-	font-size: 1.5em;
+  background-color: #ffcccc;
+  background-image: url("images/ricePaper.png");
+  background-repeat: repeat;
+  height:600px;
+  padding:5%;
+  color:black;
+  font-size: 1.5em;
   margin-bottom:5%;
   box-shadow: 5px 5px 5px black;
 }
@@ -70,55 +70,113 @@ br {
   color:black;
 }
 
-.form-group {
-   font-family: 'Special Elite', 'Georgia', Times, Times New Roman, serif; 
-}
 
 .brand {
   margin-bottom: 2%;
   margin-right: 2%;
 }
 
+.volume {
+  position: relative;
+  float: right;
+  margin-bottom:2%;
+}
+
+
 
 /************************/
 /* Popup box modal form */
 /************************/
 .mpopup-content {
- position: absolute;
- background-color: grey;
- z-index:1000px;
-     top: 50%;
-     height: 115px;
-     margin-top: -57px; /* Half of the height */
-     left: 50%;
-     width:400px;
-     margin-left: -200px; /* Half of the width */
+  background-image: url("images/startPaperResized.png");
+  background-repeat: no-repeat;
+  width: 600px;
+  height: 445px;
+  position: absolute;
+  left: 50%;
+  top: 50%; 
+  margin-left: -25%;
+  margin-top: 150px;
+}
+
+.mpopup {
+    position: absolute;
+    left:0 !important;
+    z-index:1;
+    width:100%;
      border-radius: 5px;
     box-shadow: 0 10px 24px 0 rgba(0,0,0,0.2),0 10px 24px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+    margin: 0;
 }
 
-#button1,#button2 {
+#gamerules,#start {
   width:200px;
-  margin-top:15px;
+  margin-left: 300px;
 }
-#button2 {
+
+#gamerules {
+  margin-top:245px;
   margin-bottom: 15px;
 }
 
-@media screen and (max-width: 720px) and (min-width: 641px) {
-	.imageHolder {
-		margin-top: 5%;
-	}
+#start {
+  margin-bottom: 15px;
+}
 
-	.textHolder {
-		margin-bottom: 5%;
-	}
+
+/*********************************************************/
+/* @Media Changes */
+/*********************************************************/
+
+  @media screen and (max-width: 980px) and (min-width: 769px) {
+    .gameTitle {
+      font-size: 3em !important;
+    }
+
+    .mpopup-content {
+      background-image: url("images/startPaperResized.png");
+      background-repeat: no-repeat;
+      width: 600px;
+      margin-top: 200px;
+      height: 425px;
+      position: absolute;
+      left: 50%;
+      margin-left: -30%;
+}
+}
+
+    @media screen and (max-width: 768px) and (min-width: 0px) {
+    .gameTitle {
+     font-size: 1.25em !important;
+    }
+
+    .mpopup-content {
+      background-image: url("images/startPaperSM.png");
+      background-repeat: no-repeat;
+      margin-top: 200px;
+      width: 400px;
+      height:297px;
+      position: absolute; 
+      margin-left: -200px;
+}
+
+    #gamerules {
+      margin-top:150px;
+      margin-bottom: 15px;
+    }
+
+    #gamerules,#start {
+      width:150px;
+      margin-left: 200px;
+    }
 
 }
+
+
 
 /*********************************************************/
 /* Add animation effects to modal form and button clicks */
