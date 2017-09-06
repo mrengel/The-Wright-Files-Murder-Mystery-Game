@@ -319,3 +319,15 @@ var config = {
     $( "#scenario" ).empty();
     startGame();
   });
+
+  //Click functions for the volume icon to switch b/w mute and play
+  $(".volume").on("click",function() {
+
+    $(".volume").hide();
+     $(".volume2").show();
+  });
+  $(".volume2").on("click",function() {
+
+    $(".volume2").hide();
+     $(".volume").show();
+  });

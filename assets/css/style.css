@@ -82,6 +82,20 @@ br {
   margin-bottom:2%;
 }
 
+.volume2 {
+  position: relative;
+  float: right;
+  margin-bottom:2%;
+  display:none;
+}
+
+//**CSS for the voiceover input
+#voiceover {
+  position: relative;
+  float: right;
+  margin-bottom:2%;
+}
+
 
 
 /************************/
