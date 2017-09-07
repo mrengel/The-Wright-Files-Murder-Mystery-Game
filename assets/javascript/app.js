@@ -241,11 +241,23 @@ var config = {
   }
 
   function winGame() {
-    $("#mpopupBox").empty();
-    var winMessage = $("<h1>").html("You Won!");
-    $("#mpopupBox").append(winMessage);
-    console.log(winMessage);
-    $("#mpopupBox").style.display = "block";
+    //$("#mpopupBox").empty();
+    var playAgain = $("<button id='playagain' class='btn btn-primary center-block'>").text("Play Again?");
+    $("#mpopupBox").append(playAgain);
+    $("#mpopupBox").attr("class", "mpopup-win");
+    mpopup.style.display = "block";
+    //$("#mpopupBox").attr("display", "block");
+    //alert("You won!");
+  }
+
+   function loseGame() {
+    //$("#mpopupBox").empty();
+    var playAgain = $("<button id='playagain' class='btn btn-primary center-block'>").text("Play Again?");
+    $("#mpopupBox").append(playAgain);
+    $("#mpopupBox").attr("class", "mpopup-lose");
+    mpopup.style.display = "block";
+    //$("#mpopupBox").attr("display", "block");
+    //alert("You won!");
   }
 
  //***************************/
@@ -351,10 +363,12 @@ var config = {
 
     if(userGuess===murderer) {
       console.log("You won!");
-      //winGame();
+      winGame();
+      
     }
     else{
       console.log("You lost!");
+      loseGame();
     }
     //startGame();
     //runEffect();
