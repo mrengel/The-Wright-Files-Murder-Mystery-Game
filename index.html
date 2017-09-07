@@ -20,38 +20,39 @@
    <!-- jQuery UI links -->
    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
- </head>
+</head>
 
- <body>
+<body>
 
          <!-- Popup box -->
 
 
- <div class="container">
+<div class="container">
        
-<div id="mpopupBox" class="mpopup" align="center">
+  <div id="mpopupBox" class="mpopup" align="center">
     <div class="mpopup-content">
         <div class="row">
             <div class="col-sm-12 center-block" ">
               <button id=gamerules class="btn btn-primary center-block ">Game Rules</button>
             </div>
-          </div>
-          <div class="row ">
+        </div>
+        <div class="row ">
             <div class="col-sm-12 center-block ">
               <button id=start class="btn btn-primary center-block ">Start Game</button>
-           </div>
-          </div>
+            </div>
         </div>
-       </div> 
-      <div class="container">   
-     <div class="jumbotron">
+    </div>
+</div> 
+
+<div class="container">   
+    <div class="jumbotron">
       <h1 class="text-center gameTitle"><img class="brand" src="assets/css/images/sherlock.png" style="width:50px">Murder Mystery Title</h1>
       <form>
        <div class="form-group">
         <label for="guess">Have a guess? Declare your suspect:</label>
         <input class="form-control" id="userGuess" type="text"> 
         </div>
-        <button class="btn btn-primary" id="submit" type="submit">Submit</button>
+        <button class="btn btn-primary" id="submit" type="button" disabled="disabled">Submit</button>
       </form>
       <!--Code for voiceover input. Placed in jumbotron instead of game rules for now
       <input onclick='responsiveVoice.speak(" Play this game as the London’s top detective Lanson Wright to solve the cities most complicated crimes. You have managed to skillfully narrow down culprit to three key suspects. Interrogate these suspects and use the notes you took from the crime scene to accuse them of murder. ");' type='button' value='🔊 Text to Speach' class="btn btn-primary" id="voiceover" />-->

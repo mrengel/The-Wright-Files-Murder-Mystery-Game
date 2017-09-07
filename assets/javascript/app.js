@@ -237,6 +237,15 @@ var config = {
     $("#buttons").append(suspect1Btn);
     $("#buttons").append(suspect2Btn);
     $("#buttons").append(suspect3Btn);
+    $("#submit").attr("disabled", false);
+  }
+
+  function winGame() {
+    $("#mpopupBox").empty();
+    var winMessage = $("<h1>").html("You Won!");
+    $("#mpopupBox").append(winMessage);
+    console.log(winMessage);
+    $("#mpopupBox").style.display = "block";
   }
 
  //***************************/
@@ -331,3 +340,79 @@ var config = {
     $(".volume2").hide();
      $(".volume").show();
   });
+
+  //Click function for Submit button for User Guess
+
+  $("#submit").on("click", function(event) {
+
+    var userGuess = $("#userGuess").val().toLowerCase();
+    console.log(userGuess);
+    $("#userGuess").val("");
+
+    if(userGuess===murderer) {
+      console.log("You won!");
+      //winGame();
+    }
+    else{
+      console.log("You lost!");
+    }
+    //startGame();
+    //runEffect();
+
+    });
+
+  //************************************************************************/
+  // Web Animations API Code /
+  //************************************************************************/
+
+//Changes button sizes
+let el = document.querySelector('.volume');
+el.addEventListener('mouseover', function () {
+    let anim = el.animate({
+        transform: ['scale(1)', 'scale(1.25)']
+    }, 300);
+    el.style.transform = 'scale(1.25)';
+});
+el.addEventListener('mouseout', function () {
+    let anim = el.animate({
+        transform: ['scale(1.25)', 'scale(1)']
+    }, 300);
+    el.style.transform = '';
+});
+
+let elem = document.querySelector('.volume2');
+elem.addEventListener('mouseover', function () {
+    let anim = elem.animate({
+        transform: ['scale(1)', 'scale(1.25)']
+    }, 300);
+    elem.style.transform = 'scale(1.25)';
+});
+elem.addEventListener('mouseout', function () {
+    let anim = el.animate({
+        transform: ['scale(1.25)', 'scale(1)']
+    }, 300);
+    elem.style.transform = '';
+});
+
+//Add increase size and Fade effects to modal with Web API
+document.getElementById("mpopupBox").animate(
+    { transform: ['scale(.25)','scale(1)']},
+ {duration:1000});
+
+document.getElementById("mpopupBox").animate([ 
+  { opacity: 0 },
+  { opacity: .5, easing: 'ease-in' },
+  { opacity: 1 },
+  ], 750);
+
+document.getElementById("rules").animate([ 
+  { opacity: 0 },
+  { opacity: .5, easing: 'ease-in' },
+  { opacity: 1 },
+  ], 2500);
+
+document.getElementById("scenario").animate([ 
+  { opacity: 0 },
+  { opacity: .5, easing: 'ease-in' },
+  { opacity: 1 },
+  ], 2500);

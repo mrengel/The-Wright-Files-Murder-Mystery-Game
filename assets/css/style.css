@@ -106,7 +106,6 @@ br {
   background-repeat: no-repeat;
   width: 600px;
   height: 445px;
-  position: absolute;
   left: 50%;
   top: 50%; 
   margin-left: -25%;
@@ -115,11 +114,10 @@ br {
 
 .mpopup {
     position: absolute;
-    left:0 !important;
+    left:15% !important;
     z-index:1;
     width:100%;
      border-radius: 5px;
-    box-shadow: 0 10px 24px 0 rgba(0,0,0,0.2),0 10px 24px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
@@ -157,7 +155,6 @@ br {
       width: 600px;
       margin-top: 200px;
       height: 425px;
-      position: absolute;
       left: 50%;
       margin-left: -30%;
 }
@@ -174,7 +171,6 @@ br {
       margin-top: 200px;
       width: 400px;
       height:297px;
-      position: absolute; 
       margin-left: -200px;
 }
 
