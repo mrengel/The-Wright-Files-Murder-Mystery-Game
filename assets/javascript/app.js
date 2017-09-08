@@ -1,3 +1,23 @@
+$(document).ready(function(){
+var bgm = new Audio("bgm.mp3");
+    bgm.play();
+
+    var nextSFX = new Audio("PageTurn.mp3");
+$(".volume").on("click",function() {
+
+    $(".volume").hide();
+     $(".volume2").show();
+     bgm.pause();
+  });
+  $(".volume2").on("click",function() {
+
+    $(".volume2").hide();
+     $(".volume").show();
+     
+      bgm.play();
+  });
+
+
 var config = {
     apiKey: "AIzaSyCrEZMsZawnMNSTCe_mteQBAaGpmuMQH6Y",
     authDomain: "groupproject-14138.firebaseapp.com",
@@ -240,6 +260,7 @@ var config = {
     $("#submit").attr("disabled", false);
   }
 
+  //"Win"Modal appears after User Wins with option to play again
   function winGame() {
     //$("#mpopupBox").empty();
     var playAgain = $("<button id='playagain' class='btn btn-primary center-block'>").text("Play Again?");
@@ -250,6 +271,7 @@ var config = {
     //alert("You won!");
   }
 
+  //"Lose"Modal appears after User loses with option to play again
    function loseGame() {
     //$("#mpopupBox").empty();
     var playAgain = $("<button id='playagain' class='btn btn-primary center-block'>").text("Play Again?");
@@ -259,6 +281,15 @@ var config = {
     //$("#mpopupBox").attr("display", "block");
     //alert("You won!");
   }
+
+  //Function for "Play Again" click
+  $(document).on("click", "#playagain", function(){
+    mpopup.style.display = "none";
+    //rulesScenarioPrevious();
+    //runEffect();
+    //reset();
+    location.reload(true);
+  });
 
  //***************************/
  //Function for suspect click /
@@ -342,22 +373,22 @@ var config = {
   });
 
   //Click functions for the volume icon to switch b/w mute and play
-  $(".volume").on("click",function() {
+  // $(".volume").on("click",function() {
 
-    $(".volume").hide();
-     $(".volume2").show();
-  });
-  $(".volume2").on("click",function() {
+  //   $(".volume").hide();
+  //    $(".volume2").show();
+  // });
+  // $(".volume2").on("click",function() {
 
-    $(".volume2").hide();
-     $(".volume").show();
-  });
+  //   $(".volume2").hide();
+  //    $(".volume").show();
+  // });
 
   //Click function for Submit button for User Guess
 
   $("#submit").on("click", function(event) {
 
-    var userGuess = $("#userGuess").val().toLowerCase();
+    var userGuess = $("#userGuess").val()//.toLowerCase();
     console.log(userGuess);
     $("#userGuess").val("");
 
@@ -366,12 +397,14 @@ var config = {
       winGame();
       
     }
-    else{
+    if(userGuess!==murderer||userGuess===suspect1name&&userGuess===suspect2name&&userGuess===suspect3name){
       console.log("You lost!");
       loseGame();
     }
-    //startGame();
-    //runEffect();
+    else{
+      alert("Not a valid input");
+    }
+    
 
     });
 
@@ -430,3 +463,5 @@ document.getElementById("scenario").animate([
   { opacity: .5, easing: 'ease-in' },
   { opacity: 1 },
   ], 2500);
+
+});
