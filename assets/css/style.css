@@ -89,6 +89,16 @@ br {
   display:none;
 }
 
+.clues {
+  margin-top:45px;
+  margin-left:25px;
+}
+
+.suspects {
+  margin-top:45px;
+  margin-top:25;
+}
+
 /**CSS for the voiceover input
 #voiceover {
   position: relative;
