@@ -33,16 +33,36 @@
     <div class="mpopup-content">
         <div class="row">
             <div class="col-sm-12 center-block" ">
-              <button id=gamerules class="btn btn-primary center-block ">Game Rules</button>
+              <button id=gamerules class="btn btn-primary center-block ">Study the Case</button>
             </div>
         </div>
         <div class="row ">
             <div class="col-sm-12 center-block ">
-              <button id=start class="btn btn-primary center-block ">Start Game</button>
+              <button id=start class="btn btn-primary center-block ">Interview Suspects</button>
             </div>
         </div>
     </div>
 </div> 
+<div class="container">
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Not a suspect!</h4>
+            </div>
+            <div class="modal-body">
+               That's not a valid suspect, try again!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary start">Start</button>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+</div>
 
 <div class="container">   
     <div class="jumbotron">
@@ -50,7 +70,7 @@
       <form>
        <div class="form-group">
         <label for="guess">Have a guess? Declare your suspect:</label>
-        <input class="form-control" id="userGuess" type="text"> 
+        <input class="form-control" id="userGuess" type="text" placeholder="Enter Full Name"> 
         </div>
         <button class="btn btn-primary" id="submit" type="button" disabled="disabled">Submit</button>
       </form>
@@ -77,10 +97,8 @@
     </div>
   
     <script src="assets/javascript/app.js"></script>
-    <!-- Show modal popup box -->
-    <script>
-      mpopup.style.display = "block";
-    </script>
+    
+    
     
    </body>
 <footer>

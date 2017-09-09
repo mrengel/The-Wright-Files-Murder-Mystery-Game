@@ -457,21 +457,31 @@ var config = {
 
   $("#submit").on("click", function(event) {
 
-    var userGuess = $("#userGuess").val()//.toLowerCase();
+    var userGuess = $("#userGuess").val().toLowerCase();
+    var correctAnswer = murderer.toLowerCase();
+    var suspect1Lc = suspect1name.toLowerCase();
+    var suspect2Lc = suspect2name.toLowerCase();
+    var suspect3Lc = suspect3name.toLowerCase();
     console.log(userGuess);
     $("#userGuess").val("");
 
-    if(userGuess===murderer) {
+   
+    
+    if(userGuess!==suspect1Lc&&userGuess!==suspect2Lc&userGuess!==suspect3Lc) {
+      $("#myModal").modal('show');
+      
+      ('.start').on('click', function() {
+    $('.modal').modal('hide');
+    });
+    }
+
+    else if(userGuess===correctAnswer) {
       console.log("You won!");
       winGame();
       
     }
-    //if(userGuess!==murderer||userGuess===suspect1name&&userGuess===suspect2name&&userGuess===suspect3name){
-      //console.log("You lost!");
-      //loseGame();
-    //}
     else{
-      alert("Not a valid input");
+      loseGame();
     }
     
 
