@@ -135,7 +135,7 @@ br {
     margin: 0;
 }
 
-#gamerules,#start {
+#gamerules,#start,#playagain {
   width:200px;
   margin-left: 300px;
 }
@@ -146,6 +146,11 @@ br {
 }
 
 #start {
+  margin-bottom: 15px;
+}
+
+#playagain {
+  margin-top:300px;
   margin-bottom: 15px;
 }
 
@@ -181,7 +186,7 @@ br {
       margin-top: 200px;
       width: 400px;
       height:297px;
-      margin-left: -200px;
+      margin-left: -100px;
 }
 
     #gamerules {
@@ -189,9 +194,15 @@ br {
       margin-bottom: 15px;
     }
 
-    #gamerules,#start {
+    #gamerules,#start,#playagain {
       width:150px;
       margin-left: 200px;
+    }
+
+     #playagain {
+      margin-top:200px;
+      margin-bottom: 15px;
+      margin-left: 55%;
     }
 
 }
@@ -212,11 +223,5 @@ br {
 .mpopup-content {
   animation: pulse 5s infinite;
 }
-@keyframes pulse {
-  0% {
-    background-color: #000000;
-  }
-  100% {
-    background-color: #8000ff;
-  }
+
 }

@@ -386,25 +386,26 @@ var config = {
 
 
   //"Win"Modal appears after User Wins with option to play again
+  var viewportWidth = $(window).width();
   function winGame() {
     //$("#mpopupBox").empty();
     var playAgain = $("<button id='playagain' class='btn btn-primary center-block'>").text("Play Again?");
-    $("#mpopupBox").append(playAgain);
-    $("#mpopupBox").attr("class", "mpopup-win");
+    $(".mpopup-content").css('background-image','url("assets/images/winAmelia.png")');
+    $(".mpopup-content").append(playAgain);
     mpopup.style.display = "block";
-    //$("#mpopupBox").attr("display", "block");
-    //alert("You won!");
+    if (viewportWidth < 768) {
+  $(".mpopup-content").css('background-image','url("assets/images/winAmeliaResize.png")');}
   }
 
   //"Lose"Modal appears after User loses with option to play again
    function loseGame() {
     //$("#mpopupBox").empty();
     var playAgain = $("<button id='playagain' class='btn btn-primary center-block'>").text("Play Again?");
-    $("#mpopupBox").append(playAgain);
-    $("#mpopupBox").attr("class", "mpopup-lose");
+    $(".mpopup-content").css('background-image','url("assets/images/losePaper.png")');
+    $(".mpopup-content").append(playAgain);
     mpopup.style.display = "block";
-    //$("#mpopupBox").attr("display", "block");
-    //alert("You won!");
+    if (viewportWidth < 768) {
+  $(".mpopup-content").css('background-image','url("assets/images/losePaperResize.png")');}
   }
 
   //Function for "Play Again" click
