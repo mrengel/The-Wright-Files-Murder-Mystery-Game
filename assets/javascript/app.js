@@ -373,14 +373,33 @@ var config = {
   $(".mpopup-content").css('background-image','url("assets/images/losePaperResize.png")');}
   }
 
+  //"Invalid" Modal appears if user enters an invalid name
+  function invalidInput() {
+    jQuery.noConflict();
+    $("#invalidModal").modal('show');
+  }
+
+ //Function for "Try Again" button in Invalid Modal
+ $(document).on("click", "#tryagain", function(){
+    jQuery.noConflict();
+    $(".modal").modal('hide');
+  }); 
+
   //Function for "Play Again" click
   $(document).on("click", "#playagain", function(){
     mpopup.style.display = "none";
-    //rulesScenarioPrevious();
-    //runEffect();
-    //reset();
     location.reload(true);
   });
+
+  //Function that limits input to only alpha characters
+  function alphaOnly(event) {
+  var value = String.fromCharCode(event.which);
+  var pattern = new RegExp(/[a-zåäö ]/i);
+  return pattern.test(value);
+  };
+
+  //alphaOnly function being called in the input box
+  $(document).on("keypress", "#userGuess", alphaOnly);
 
  
 
@@ -434,11 +453,7 @@ var config = {
    
     
     if(userGuess!==suspect1Lc&&userGuess!==suspect2Lc&userGuess!==suspect3Lc) {
-    //   $("#myModal").modal('show');
-      
-    //   ('.start').on('click', function() {
-    // $('.modal').modal('hide');
-    // });
+      invalidInput();
     }
 
     else if(userGuess===correctAnswer) {
