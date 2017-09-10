@@ -64,6 +64,7 @@ var config = {
   var clue1image = "";
   var clue2image = "";
   var clue3image = "";
+  var detimage ="";
   var murderer = "";
   var rules = "";
   var scenario = "";
@@ -112,6 +113,7 @@ var config = {
     suspect1image = data.val().suspect1.image;
     suspect2image = data.val().suspect2.image;
     suspect3image = data.val().suspect3.image;
+    detimage = data.val().detective;
 
 
     murderer = data.val().murderer;
@@ -144,7 +146,10 @@ var config = {
     suspect3answer3 = data.val().suspect3.answer3;
     suspect3bio = data.val().suspect3.bio;
 
-    console.log("clue: " + clue);
+    console.log("clue1: " + clue1image);
+    console.log("clue2: " + clue2image);
+    console.log("clue3: " + clue3image);
+    console.log("det: " + detimage);
     console.log("murderer: " + murderer);
     console.log("rules: " + rules);
     console.log("scenario: " + scenario);
@@ -207,26 +212,29 @@ var config = {
     $("#scenario").append(h3);
     $("#scenario").append(br);
     $("#scenario").append(scenario); 
-    $("#scenario").append(p);
+    //$("#scenario").append(p);
     //**************************************************/
     // Add Next button to get to game from first "view" /
     //**************************************************/
-    var nextBtn = $("<button id='next' style='float:right'>").text("Next");
+    var h3 = $("<h3>").text("");
+    $("#scenario").append(h3);
+    var nextBtn = $("<button id='next' style='float:right'>").text("Interview");
     $("#scenario").append(nextBtn);
   
 
     //Add clues///
-    $('#buttons').append("<img class='clues' src="+clue1image+" />")
-    $('#buttons').append("<img class='clues' src="+clue2image+" />")
-    $('#buttons').append("<img class='clues' src="+clue3image+" />")
-    console.log( "Chuckie");
+    $('#buttons').append("<img class='clues' src="+clue1image+" />");
+    $('#buttons').append("<img class='clues' src="+clue2image+" />");
+    $('#buttons').append("<img class='clues' src="+clue3image+" />");
+    $('#buttons').append("<img class='clues' src="+detimage+" />");
   }
   //*****************************/
   // Runs behind Previous button /
   //*****************************/
   function rulesScenarioPrevious() {
     $("#rules").empty();
-    $("#scenario").empty(); 
+    $("#scenario").empty();
+    $( "#text").empty(); 
     $( "#buttons").empty();
     var h3 = $("<h3>").text("Game Rules");
     $("#rules").append(h3);
@@ -243,7 +251,9 @@ var config = {
     //**************************************************/
     // Add Next button to get to game from first "view" /
     //**************************************************/
-    var nextBtn = $("<button id='next' style='float:right'>").text("Next");
+    var h3 = $("<h3>").text("");
+    $("#scenario").append(h3);
+    var nextBtn = $("<button id='next' style='float:right'>").text("Interview");
     $("#scenario").append(nextBtn);
   
 
@@ -251,7 +261,7 @@ var config = {
     $('#buttons').append("<img class='clues' id='clue1' src="+clue1image+" />")
     $('#buttons').append("<img class='clues' id='clue2' src="+clue2image+" />")
     $('#buttons').append("<img class='clues' id='clue3' src="+clue3image+" />")
-    console.log( "Junior");
+    $('#buttons').append("<img class='clues' src="+detimage+" />");
   }
   //***********************************************************************/
   // Get randomly selected effect and apply to both buttons on Modal popup /
@@ -275,6 +285,8 @@ var config = {
     var suspect1Btn = $("<input type='image' class='suspects' id='suspect1' src="+suspect1image+">");
     var suspect2Btn = $("<input type='image' class='suspects' id='suspect2' src="+suspect2image+">");
     var suspect3Btn = $("<input type='image' class='suspects' id='suspect3' src="+suspect3image+">");
+    var h5 = $("<h5 id='clickimagetetxt'>").text("(click on an image)");
+    $("#text").append(h5);
     $("#buttons").append(suspect1Btn);
     $("#buttons").append(suspect2Btn);
     $("#buttons").append(suspect3Btn);
@@ -284,76 +296,30 @@ var config = {
     $("#submit").attr("disabled", false);
   }
 
+  var name = "";
+  var suspect = "";
+  
   function suspect1() {
-    $( "#rules" ).empty();
-    $( "#scenario" ).empty();
-    var name = suspect1name;
-    var h3 = $("<h3>").text("Bio - " + name);
-    $("#rules").append(h3);
-    $("#rules").append(p);
-    $("#rules").append("<h5><span id='bio'></span></h5>");
-    $("#rules").append("<br>");
-    $("#rules").append("<br>");
-    var h3 = $("<h3>").text("Interview Questions");
-    $("#scenario").append(h3);
-    $("#scenario").append(p);
-    $("#scenario").append("<h5>Question1: <span id='question1'></span></h5>");
-    $("#scenario").append("<h5>Answer1: <span id='answer1'></span></h5>");
-    $("#scenario").append("<br>");  
-    $("#scenario").append("<h5>Question2: <span id='question2'></span></h5>");
-    $("#scenario").append("<h5>Answer2: <span id='answer2'></span></h5>");
-    $("#scenario").append("<br>"); 
-    $("#scenario").append("<h5>Question3: <span id='question3'></span></h5>");
-    $("#scenario").append("<h5>Answer3: <span id='answer3'></span></h5>");
-    $("#scenario").append(p); 
-    var prevBtn = $("<button id='previous' style='float:right'>").text("Previous");
-    $("#scenario").append(prevBtn);
-    $("#question1").html(suspect1question1);
-    $("#answer1").html(suspect1answer1);
-    $("#question2").html(suspect1question2);
-    $("#answer2").html(suspect1answer2);
-    $("#question3").html(suspect1question3);
-    $("#answer3").html(suspect1answer3);
-    $("#bio").html(suspect1bio);
+    name = suspect1name;
+    suspect = "suspect1";
+    processSuspect();
   }
 
   function suspect2() {
-    $( "#rules" ).empty();
-    $( "#scenario" ).empty();
-    var name = suspect2name;
-    var h3 = $("<h3>").text("Bio - " + name);
-    $("#rules").append(h3);
-    $("#rules").append(p);
-    $("#rules").append("<h5><span id='bio'></span></h5>");
-    $("#rules").append("<br>");
-    $("#rules").append("<br>");
-    var h3 = $("<h3>").text("Interview Questions");
-    $("#scenario").append(h3);
-    $("#scenario").append(p);
-    $("#scenario").append("<h5>Question1: <span id='question1'></span></h5>");
-    $("#scenario").append("<h5>Answer1: <span id='answer1'></span></h5>");
-    $("#scenario").append("<br>");  
-    $("#scenario").append("<h5>Question2: <span id='question2'></span></h5>");
-    $("#scenario").append("<h5>Answer2: <span id='answer2'></span></h5>");
-    $("#scenario").append("<br>"); 
-    $("#scenario").append("<h5>Question3: <span id='question3'></span></h5>");
-    $("#scenario").append("<h5>Answer3: <span id='answer3'></span></h5>");
-    $("#scenario").append(p); 
-    var prevBtn = $("<button id='previous' style='float:right'>").text("Previous");
-    $("#scenario").append(prevBtn);
-    $("#question1").html(suspect2question1);
-    $("#answer1").html(suspect2answer1);
-    $("#question2").html(suspect2question2);
-    $("#answer2").html(suspect2answer2);
-    $("#question3").html(suspect2question3);
-    $("#answer3").html(suspect2answer3);
-    $("#bio").html(suspect2bio);
+    name = suspect2name;
+    suspect = "suspect2";
+    processSuspect();
   }
 
   function suspect3() {
+    name = suspect3name;
+    suspect = "suspect3";
+    processSuspect();
+  }
+
+  function processSuspect() {
     $( "#rules" ).empty();
     $( "#scenario" ).empty();
-    var name = suspect3name;
     var h3 = $("<h3>").text("Bio - " + name);
     $("#rules").append(h3);
     $("#rules").append(p);
@@ -372,17 +338,16 @@ var config = {
     $("#scenario").append("<h5>Question3: <span id='question3'></span></h5>");
     $("#scenario").append("<h5>Answer3: <span id='answer3'></span></h5>");
     $("#scenario").append(p); 
-    var prevBtn = $("<button id='previous' style='float:right'>").text("Previous");
+    var prevBtn = $("<button id='previous' style='float:right'>").text("Study Case");
     $("#scenario").append(prevBtn);
-    $("#question1").html(suspect3question1);
-    $("#answer1").html(suspect3answer1);
-    $("#question2").html(suspect3question2);
-    $("#answer2").html(suspect3answer2);
-    $("#question3").html(suspect3question3);
-    $("#answer3").html(suspect3answer3);
-    $("#bio").html(suspect3bio);
+    $("#question1").html(eval(suspect + "question1"));
+    $("#answer1").html(eval(suspect + "answer1"));
+    $("#question2").html(eval(suspect + "question2"));
+    $("#answer2").html(eval(suspect + "answer2"));
+    $("#question3").html(eval(suspect + "question3"));
+    $("#answer3").html(eval(suspect + "answer3"));
+    $("#bio").html(eval(suspect + "bio"));
   }
-
 
 
   //"Win"Modal appears after User Wins with option to play again
@@ -437,6 +402,7 @@ var config = {
   $(document).on("click", "#next", function() {
     $( "#rules" ).empty();
     $( "#scenario" ).empty();
+    $( "#text").empty();
     $( "#buttons" ).empty();
     startGame();
   });
@@ -468,11 +434,11 @@ var config = {
    
     
     if(userGuess!==suspect1Lc&&userGuess!==suspect2Lc&userGuess!==suspect3Lc) {
-      $("#myModal").modal('show');
+    //   $("#myModal").modal('show');
       
-      ('.start').on('click', function() {
-    $('.modal').modal('hide');
-    });
+    //   ('.start').on('click', function() {
+    // $('.modal').modal('hide');
+    // });
     }
 
     else if(userGuess===correctAnswer) {

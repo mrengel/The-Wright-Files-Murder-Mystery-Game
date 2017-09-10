@@ -104,6 +104,21 @@ br {
   margin-top:25;
 }
 
+#rulesAndscenario {
+  overflow-y: scroll;
+}
+
+#next,#previous {
+  width:100px;
+  border-radius: 5px;
+  box-shadow: 0 10px 24px 0 rgba(0,0,0,0.2),0 10px 24px 0 rgba(0,0,0,0.19);
+}
+
+#text {
+  font-family: 'Special Elite', 'Georgia', Times, Times New Roman, serif;
+  text-align: center;
+}
+
 /**CSS for the voiceover input
 #voiceover {
   position: relative;
