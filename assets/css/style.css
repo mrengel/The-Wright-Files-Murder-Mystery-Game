@@ -98,10 +98,12 @@ br {
 }
 
 .suspects {
-  width:50%;
-  margin-top:5%;
+  width:40%;
+  /**margin-top:5%;
   margin-bottom:5%;
-  margin-top:25;
+  margin-top:25;**/
+  margin-left: 25px;
+  margin-right: 10px;
 }
 
 #rulesAndscenario {

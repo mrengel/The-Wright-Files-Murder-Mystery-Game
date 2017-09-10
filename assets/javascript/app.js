@@ -223,10 +223,10 @@ var config = {
   
 
     //Add clues///
-    $('#buttons').append("<img class='clues' src="+clue1image+" />");
-    $('#buttons').append("<img class='clues' src="+clue2image+" />");
-    $('#buttons').append("<img class='clues' src="+clue3image+" />");
-    $('#buttons').append("<img class='clues' src="+detimage+" />");
+    $('#buttons').append("<img class='clues' id='clue1' src="+clue1image+" />");
+    $('#buttons').append("<img class='clues' id='clue2' src="+clue2image+" />");
+    $('#buttons').append("<img class='clues' id='clue3' src="+clue3image+" />");
+    $('#buttons').append("<img class='clues' id='clue4' src="+detimage+" />");
   }
   //*****************************/
   // Runs behind Previous button /
@@ -261,7 +261,7 @@ var config = {
     $('#buttons').append("<img class='clues' id='clue1' src="+clue1image+" />")
     $('#buttons').append("<img class='clues' id='clue2' src="+clue2image+" />")
     $('#buttons').append("<img class='clues' id='clue3' src="+clue3image+" />")
-    $('#buttons').append("<img class='clues' src="+detimage+" />");
+    $('#buttons').append("<img class='clues' id='clue4' src="+detimage+" />");
   }
   //***********************************************************************/
   // Get randomly selected effect and apply to both buttons on Modal popup /
@@ -353,24 +353,38 @@ var config = {
   //"Win"Modal appears after User Wins with option to play again
   var viewportWidth = $(window).width();
   function winGame() {
-    //$("#mpopupBox").empty();
     var playAgain = $("<button id='playagain' class='btn btn-primary center-block'>").text("Play Again?");
     $(".mpopup-content").css('background-image','url("assets/images/winAmelia.png")');
     $(".mpopup-content").append(playAgain);
     mpopup.style.display = "block";
     if (viewportWidth < 768) {
-  $(".mpopup-content").css('background-image','url("assets/images/winAmeliaResize.png")');}
+    $(".mpopup-content").css('background-image','url("assets/images/winAmeliaResize.png")');}
+    document.getElementById("mpopupBox").animate(
+          [
+              { transform: 'rotate(0)' },
+              { transform: 'rotate(720deg)' }
+          ], {
+              duration: 750,
+          }
+      );
   }
 
   //"Lose"Modal appears after User loses with option to play again
    function loseGame() {
-    //$("#mpopupBox").empty();
     var playAgain = $("<button id='playagain' class='btn btn-primary center-block'>").text("Play Again?");
     $(".mpopup-content").css('background-image','url("assets/images/losePaper.png")');
     $(".mpopup-content").append(playAgain);
     mpopup.style.display = "block";
     if (viewportWidth < 768) {
-  $(".mpopup-content").css('background-image','url("assets/images/losePaperResize.png")');}
+    $(".mpopup-content").css('background-image','url("assets/images/losePaperResize.png")');}
+    document.getElementById("mpopupBox").animate(
+          [
+              { transform: 'rotate(0)' },
+              { transform: 'rotate(720deg)' }
+          ], {
+              duration: 750,
+          }
+      );
   }
 
   //"Invalid" Modal appears if user enters an invalid name
@@ -409,14 +423,163 @@ var config = {
   $("#start").on("click", function(event) {
     startGame();
     runEffect();
+    let em = document.querySelector('#suspect1');
+    em.addEventListener('mouseover', function() {
+        let anim = em.animate({
+            transform: ['scale(1)', 'scale(1.25)']
+        }, 300);
+        em.style.transform = 'scale(1.25)';
+    });
+    em.addEventListener('mouseout', function() {
+        let anim = el.animate({
+            transform: ['scale(1.25)', 'scale(1)']
+        }, 300);
+        em.style.transform = '';
+    });
+    let en = document.querySelector('#suspect2');
+    en.addEventListener('mouseover', function() {
+        let anim = en.animate({
+            transform: ['scale(1)', 'scale(1.25)']
+        }, 300);
+        en.style.transform = 'scale(1.25)';
+    });
+    en.addEventListener('mouseout', function() {
+        let anim = en.animate({
+            transform: ['scale(1.25)', 'scale(1)']
+        }, 300);
+        en.style.transform = '';
+    });
+    let eo = document.querySelector('#suspect3');
+    eo.addEventListener('mouseover', function() {
+        let anim = eo.animate({
+            transform: ['scale(1)', 'scale(1.25)']
+        }, 300);
+        eo.style.transform = 'scale(1.25)';
+    });
+    eo.addEventListener('mouseout', function() {
+    let anim = eo.animate({
+        transform: ['scale(1.25)', 'scale(1)']
+    }, 300);
+    eo.style.transform = '';
+    });
+    
   });
 
   $("#gamerules").on("click", function(event) {
     rulesScenario();
     runEffect();
+    let ep = document.querySelector('#clue1');
+    ep.addEventListener('mouseover', function() {
+        let anim = ep.animate({
+            transform: ['scale(1)', 'scale(1.25)']
+        }, 300);
+        ep.style.transform = 'scale(1.25)';
+    });
+    ep.addEventListener('mouseout', function() {
+        let anim = ep.animate({
+            transform: ['scale(1.25)', 'scale(1)']
+        }, 300);
+        ep.style.transform = '';
+    });
+    let eq = document.querySelector('#clue2');
+    eq.addEventListener('mouseover', function() {
+        let anim = eq.animate({
+            transform: ['scale(1)', 'scale(1.25)']
+        }, 300);
+        eq.style.transform = 'scale(1.25)';
+    });
+    eq.addEventListener('mouseout', function() {
+        let anim = eq.animate({
+            transform: ['scale(1.25)', 'scale(1)']
+        }, 300);
+        eq.style.transform = '';
+    });
+    let er = document.querySelector('#clue3');
+    er.addEventListener('mouseover', function() {
+        let anim = er.animate({
+            transform: ['scale(1)', 'scale(1.25)']
+        }, 300);
+        er.style.transform = 'scale(1.25)';
+    });
+    er.addEventListener('mouseout', function() {
+        let anim = er.animate({
+            transform: ['scale(1.25)', 'scale(1)']
+        }, 300);
+        er.style.transform = '';
+    });
+    let es = document.querySelector('#clue4');
+    es.addEventListener('mouseover', function() {
+        let anim = es.animate({
+            transform: ['scale(1)', 'scale(1.25)']
+        }, 300);
+        es.style.transform = 'scale(1.25)';
+    });
+    es.addEventListener('mouseout', function() {
+        let anim = es.animate({
+            transform: ['scale(1.25)', 'scale(1)']
+        }, 300);
+        es.style.transform = '';
+    });
+
   });
 
-  $(document).on("click", "#previous", rulesScenarioPrevious);
+  $(document).on("click", "#previous", function() {
+    rulesScenarioPrevious();
+    let ep = document.querySelector('#clue1');
+    ep.addEventListener('mouseover', function() {
+        let anim = ep.animate({
+            transform: ['scale(1)', 'scale(1.25)']
+        }, 300);
+        ep.style.transform = 'scale(1.25)';
+    });
+    ep.addEventListener('mouseout', function() {
+        let anim = ep.animate({
+            transform: ['scale(1.25)', 'scale(1)']
+        }, 300);
+        ep.style.transform = '';
+    });
+    let eq = document.querySelector('#clue2');
+    eq.addEventListener('mouseover', function() {
+        let anim = eq.animate({
+            transform: ['scale(1)', 'scale(1.25)']
+        }, 300);
+        eq.style.transform = 'scale(1.25)';
+    });
+    eq.addEventListener('mouseout', function() {
+        let anim = eq.animate({
+            transform: ['scale(1.25)', 'scale(1)']
+        }, 300);
+        eq.style.transform = '';
+    });
+    let er = document.querySelector('#clue3');
+    er.addEventListener('mouseover', function() {
+        let anim = er.animate({
+            transform: ['scale(1)', 'scale(1.25)']
+        }, 300);
+        er.style.transform = 'scale(1.25)';
+    });
+    er.addEventListener('mouseout', function() {
+        let anim = er.animate({
+            transform: ['scale(1.25)', 'scale(1)']
+        }, 300);
+        er.style.transform = '';
+    });
+    let es = document.querySelector('#clue4');
+    es.addEventListener('mouseover', function() {
+        let anim = es.animate({
+            transform: ['scale(1)', 'scale(1.25)']
+        }, 300);
+        es.style.transform = 'scale(1.25)';
+    });
+    es.addEventListener('mouseout', function() {
+        let anim = es.animate({
+            transform: ['scale(1.25)', 'scale(1)']
+        }, 300);
+        es.style.transform = '';
+    });
+
+
+  });
 
   $(document).on("click", "#next", function() {
     $( "#rules" ).empty();
@@ -424,6 +587,45 @@ var config = {
     $( "#text").empty();
     $( "#buttons" ).empty();
     startGame();
+    let em = document.querySelector('#suspect1');
+    em.addEventListener('mouseover', function() {
+        let anim = em.animate({
+            transform: ['scale(1)', 'scale(1.25)']
+        }, 300);
+        em.style.transform = 'scale(1.25)';
+    });
+    em.addEventListener('mouseout', function() {
+        let anim = el.animate({
+            transform: ['scale(1.25)', 'scale(1)']
+        }, 300);
+        em.style.transform = '';
+    });
+    let en = document.querySelector('#suspect2');
+    en.addEventListener('mouseover', function() {
+        let anim = en.animate({
+            transform: ['scale(1)', 'scale(1.25)']
+        }, 300);
+        en.style.transform = 'scale(1.25)';
+    });
+    en.addEventListener('mouseout', function() {
+        let anim = en.animate({
+            transform: ['scale(1.25)', 'scale(1)']
+        }, 300);
+        en.style.transform = '';
+    });
+    let eo = document.querySelector('#suspect3');
+    eo.addEventListener('mouseover', function() {
+        let anim = eo.animate({
+            transform: ['scale(1)', 'scale(1.25)']
+        }, 300);
+        eo.style.transform = 'scale(1.25)';
+    });
+    eo.addEventListener('mouseout', function() {
+    let anim = eo.animate({
+        transform: ['scale(1.25)', 'scale(1)']
+    }, 300);
+    eo.style.transform = '';
+    });
   });
 
   //Click functions for the volume icon to switch b/w mute and play
