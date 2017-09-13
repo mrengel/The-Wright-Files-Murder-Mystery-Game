@@ -48,10 +48,15 @@ $(document).ready(function() {
     var refCount = database.ref().child("Count");
     refCount.on('value', getCount, errData)
     var count = 0;
+    var mysteryNum = 0;
+    var mysteries = [];
 
     function getCount(data) {
         count = data.val().count;
         console.log("count: " + count);
+        mysteryNum = Math.floor(Math.random() * count) + 1;
+        var refData = database.ref().child("Mysteries/" + mysteryNum + "/");
+        refData.on('value', getData, errData)
     }
 
     function errData(err) {
@@ -151,42 +156,6 @@ $(document).ready(function() {
         suspect3answer2 = data.val().suspect3.answer2;
         suspect3answer3 = data.val().suspect3.answer3;
         suspect3bio = data.val().suspect3.bio;
-
-        console.log("clue1: " + clue1image);
-        console.log("clue2: " + clue2image);
-        console.log("clue3: " + clue3image);
-        console.log("det: " + detimage);
-        console.log("murderer: " + murderer);
-        console.log("rules: " + rules);
-        console.log("scenario: " + scenario);
-        console.log("suspect1name: " + suspect1name);
-        console.log("suspect1question1: " + suspect1question1);
-        console.log("suspect1question2: " + suspect1question2);
-        console.log("suspect1question3: " + suspect1question3);
-        console.log("suspect1answer1: " + suspect1answer1);
-        console.log("suspect1answer2: " + suspect1answer2);
-        console.log("suspect1answer3: " + suspect1answer3);
-        console.log("suspect1bio: " + suspect1bio);
-        console.log("suspect1image: " + suspect1image);
-
-        console.log("suspect2name: " + suspect2name);
-        console.log("suspect2question2: " + suspect2question2);
-        console.log("suspect2question3: " + suspect2question3);
-        console.log("suspect2answer1: " + suspect2answer1);
-        console.log("suspect2answer2: " + suspect2answer2);
-        console.log("suspect2answer3: " + suspect2answer3);
-        console.log("suspect2bio: " + suspect2bio);
-        console.log("suspect2image: " + suspect2image);
-
-        console.log("suspect3name: " + suspect3name);
-        console.log("suspect3question1: " + suspect3question1);
-        console.log("suspect3question2: " + suspect3question2);
-        console.log("suspect3question3: " + suspect3question3);
-        console.log("suspect3answer1: " + suspect3answer1);
-        console.log("suspect3answer2: " + suspect3answer2);
-        console.log("suspect3answer3: " + suspect3answer3);
-        console.log("suspect3bio: " + suspect3bio);
-        console.log("suspect3image: " + suspect3image);
     }
 
     /*******************************************/

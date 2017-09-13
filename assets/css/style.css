@@ -98,9 +98,6 @@ br {
 
 .suspects {
     width: 40%;
-    /**margin-top:5%;
-  margin-bottom:5%;
-  margin-top:25;**/
     margin-left: 25px;
     margin-right: 10px;
 }
@@ -120,14 +117,6 @@ br {
     font-family: 'Special Elite', 'Georgia', Times, Times New Roman, serif;
     text-align: center;
 }
-
-
-/**CSS for the voiceover input
-#voiceover {
-  position: relative;
-  float: right;
-  margin-bottom:2%;
-}**/
 
 
 /************************/
@@ -182,6 +171,8 @@ br {
     margin-top: 300px;
     margin-bottom: 15px;
 }
+
+
 
 
 
@@ -254,6 +245,8 @@ br {
 
 
 
+
+
 /*********************************************************/
 
 
@@ -287,6 +280,8 @@ br {
 .mpopup-content {
     animation: pulse 5s infinite;
 }
+
+
 
 
 }
