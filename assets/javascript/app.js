@@ -3,6 +3,10 @@ $(document).ready(function() {
     bgm.loop = true;
     bgm.play();
 
+    var nextSFX = new Audio("PageTurn.mp3");
+    var playGameSound = new Audio("playGameSound.mp3");
+    var mouseover= new Audio("mouseover.mp3");
+
     //var nextSFX = new Audio("PageTurn.mp3");
     $(".volume").on("click", function() {
 
@@ -299,7 +303,7 @@ $(document).ready(function() {
         $(".suspects").mouseenter(function() {
             var text = "<div>Click on the suspects to Investigate!</div>";
             $("#clickimagetetxt").html(text);
-
+            mouseover.play();
         });
         $(".suspects").mouseleave(function() {
             $("#clickimagetetxt").empty();
@@ -592,6 +596,8 @@ $(document).ready(function() {
             es.style.transform = '';
         });
 
+        nextSFX.play();
+
 
     });
 
@@ -640,6 +646,7 @@ $(document).ready(function() {
             }, 300);
             eo.style.transform = '';
         });
+        nextSFX.play();
     });
 
 
@@ -647,7 +654,7 @@ $(document).ready(function() {
     //Click function for Submit button for User Guess
 
     $("#submit").on("click", function(event) {
-
+        playGameSound.play();
         var userGuess = $("#userGuess").val().toLowerCase();
         var correctAnswer = murderer.toLowerCase();
         var suspect1Lc = suspect1name.toLowerCase();
