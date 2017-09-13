@@ -1,0 +1,182 @@
+Background body {
+  background-image: url("images/brickResize.jpg");
+  background-repeat: repeat; }
+Background br {
+  background-color: black; }
+
+Modal .row {
+  margin: 0; }
+Modal .mpopup-content {
+  background-image: url("images/startPaperResized.png");
+  background-repeat: no-repeat;
+  width: 600px;
+  height: 445px;
+  left: 50%;
+  top: 50%;
+  margin-left: -25%;
+  margin-top: 150px; }
+Modal .mpopup {
+  position: absolute;
+  left: 15% !important;
+  z-index: 1;
+  width: 100%;
+  border-radius: 5px;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  margin: 0; }
+Modal #gamerules, Modal #start, Modal #playagain {
+  width: 200px;
+  margin-left: 300px; }
+Modal #gamerules {
+  margin-top: 245px;
+  margin-bottom: 15px; }
+Modal #start {
+  margin-bottom: 15px; }
+Modal #playagain {
+  margin-top: 300px;
+  margin-bottom: 15px; }
+
+Header .jumbotron {
+  background-color: black;
+  color: white; }
+Header .gameTitle {
+  font-family: "Special Elite", "Georgia", Times, Times New Roman, serif;
+  color: white;
+  height: 75px;
+  width: 100%;
+  margin-bottom: 2%; }
+Header .form-group {
+  font-family: "Special Elite", "Georgia", Times, Times New Roman, serif; }
+Header .volume {
+  position: relative;
+  float: right;
+  margin-bottom: 2%; }
+Header .volume2 {
+  position: relative;
+  float: right;
+  margin-bottom: 2%;
+  display: none; }
+
+LeftPanel .textHolder {
+  background-color: #ffcccc;
+  background-image: url("images/bulletinResize.jpg");
+  background-repeat: repeat;
+  border: #2e1a12 solid 8px;
+  -webkit-box-shadow: inset 0px 0px 10px black;
+  height: 600px;
+  padding: 5%;
+  color: black;
+  font-size: 1.5em;
+  margin-bottom: 5%; }
+LeftPanel .clues {
+  width: 40%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 25px;
+  margin-right: 10px; }
+LeftPanel .suspects {
+  width: 40%;
+  /**margin-top:5%;
+  margin-bottom:5%;
+  margin-top:25;**/
+  margin-left: 25px;
+  margin-right: 10px; }
+LeftPanel #clickimagetetxt {
+  width: 100%;
+  height: 10px;
+  font-family: "Special Elite", "Georgia", Times, Times New Roman, serif;
+  color: #871111;
+  text-align: center; }
+
+RightPanel .imageHolder {
+  background-color: #ffcccc;
+  background-image: url("images/ricePaper.png");
+  background-repeat: repeat;
+  height: 600px;
+  padding: 5%;
+  color: black;
+  font-size: 1.5em;
+  margin-bottom: 5%;
+  box-shadow: 5px 5px 5px black; }
+RightPanel #rules {
+  font-size: 12px;
+  line-height: 1.5;
+  font-family: "Special Elite", "Georgia", Times, Times New Roman, serif; }
+RightPanel #scenario {
+  font-size: 12px;
+  line-height: 1.5;
+  font-family: "Special Elite", "Georgia", Times, Times New Roman, serif; }
+RightPanel #line {
+  color: black; }
+RightPanel .brand {
+  margin-bottom: 2%;
+  margin-right: 2%; }
+RightPanel #rulesAndscenario {
+  overflow-y: scroll; }
+RightPanel #next, RightPanel #previous {
+  width: 100px;
+  border-radius: 5px;
+  box-shadow: 0 10px 24px 0 rgba(0, 0, 0, 0.2), 0 10px 24px 0 rgba(0, 0, 0, 0.19); }
+RightPanel #text {
+  font-family: "Special Elite", "Georgia", Times, Times New Roman, serif;
+  text-align: center; }
+
+@media screen and (max-width: 980px) and (min-width: 769px) {
+  MobileCompatibility .gameTitle {
+    font-size: 3em !important; }
+  MobileCompatibility .mpopup-content {
+    background-image: url("images/startPaperResized.png");
+    background-repeat: no-repeat;
+    width: 600px;
+    margin-top: 200px;
+    height: 425px;
+    left: 50%;
+    margin-left: -30%; } }
+
+@media screen and (max-width: 768px) and (min-width: 0px) {
+  .gameTitle {
+    font-size: 1.25em !important; }
+
+  .mpopup-content {
+    background-image: url("images/startPaperSM.png");
+    background-repeat: no-repeat;
+    margin-top: 200px;
+    width: 400px;
+    height: 297px;
+    margin-left: -100px; }
+
+  #gamerules {
+    margin-top: 150px;
+    margin-bottom: 15px; }
+
+  #gamerules, #start, #playagain {
+    width: 150px;
+    margin-left: 200px; }
+
+  #playagain {
+    margin-top: 200px;
+    margin-bottom: 15px;
+    margin-left: 55%; } }
+/*********************************************************/
+/* Add animation effects to modal form and button clicks */
+/*********************************************************/
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0; }
+  to {
+    top: 0;
+    opacity: 1; } }
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0; }
+  to {
+    top: 0;
+    opacity: 1; } }
+Animation .mpopup-content {
+  animation: pulse 5s infinite; }
+
+/*# sourceMappingURL=style.css.map */
